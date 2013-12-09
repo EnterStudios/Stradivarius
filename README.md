@@ -10,11 +10,16 @@ You can see a live example of the site at:
 
 <http://concerttalent.com>
 
-You must be a musician to register on the live site.  If you are a developer, e-mail the retainer for login info.
+The site is live and in a pre-beta release state. You must be a professional musician to register on the live site.
 
+If you're a developer and want access, e-mail the repo's maintainer. (See below.)
 
 ###TECHNOLOGY STACK
 There are many ways to deploy Django.  Stradivarius uses: Django, mod_wsgi, and Apache installed on an AWS EC2 server (Ubuntu Precise 12.04-i386) associated with an Elastic IP. MongoDB is the database used in both development and production.  Site styling provided courtesy of Bootstrap.  All HTML5/CSS3 is fully validated.
+
+If you want a smart barebones project skeleton for your first or your next Django project, especially with **Heroku** in mind, then checkout [django-skel] (https://github.com/rdegges/django-skel) and/or [django-twoscoops-project] (https://github.com/seanbradley/django-twoscoops-project).
+
+If, however, you are new to Django, and/or new to deploying Python frameworks on **AWS**, then you may need a little more meat on dem bones to get started.  If so, [Simpletown] (https://github.com/seanbradley/Simpletown) is for you. Simpletown not only clearly hints at best practices, but provides everything you need to launch a complete--albeit minimal and easy to wrangle--Django project on one of Amazon's EC2 instances.  Simpletown comes not only with a few nicities for deploying on AWS, but also with two example views--easy-to-understand functional views--one of which fetches resources from an external API.
 
 
 ###SETTINGS
@@ -87,10 +92,10 @@ styles<br />
 
 ------------------------------------------------------------------------
 
-###LICENSE
+###LICENSE AND CONTACT INFO
 
 Copyright (c) 2013 by Sean Bradley.  All rights reserved.
 
-If you're interested in using a fork of Stradivarius for commercial purposes, please contact the maintainer at:
+If you're a developer interested in checking out the site, or interested in using a fork of Stradivarius for commercial purposes, please contact the maintainer at:
 
 sean@concerttalent.com
