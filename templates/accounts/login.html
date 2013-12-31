@@ -1,0 +1,30 @@
+<ul class="nav">
+    <li class="navbar-form pull-right">
+        <form method="post" action="{% url 'accounts:login' %}">
+            {% csrf_token %}
+            {{ form.email }}
+            {{ form.password }}
+            <input type="submit" class="btn" value="Login" />
+            <input type="hidden" name="next" value="{{ request.get_full_path }}" />
+        </form>
+    </li>
+</ul>
+
+<div class="span3" style="padding:15px 10px 10px">
+    <a type="button" class="btn navbar-btn" href="{% url 'accounts:register' %}">Register</a>
+</div>
+
+{% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-error">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-error">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+{% endif %}
