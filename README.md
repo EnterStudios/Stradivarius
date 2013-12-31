@@ -11,11 +11,11 @@ This is a work in progress, a pre-beta release. You can see the site live at:
 You must be a professional musician to register on the live site. If you're a developer and want access, e-mail the repo's maintainer. (See below.)
 
 ###TECHNOLOGY STACK
-Stradivarius is built on Django, mod_wsgi, and Apache installed on an AWS EC2 server (Ubuntu Precise 12.04-i386) associated with an Elastic IP. Site styling provided courtesy of Bootstrap.  All HTML5/CSS3 is fully validated. Right now, the live site is simply a Flask powered landing page. The code in this repo--which features fully functional authentication--presently relies on PostgreSQL. We're refactoring to accommodate Mongo.
+Stradivarius is built on Django, mod_wsgi, and Apache installed on an AWS EC2 server (Ubuntu Precise 12.04-i386) associated with an Elastic IP. Site styling is provided courtesy of Bootstrap.  All HTML5/CSS3 is fully validated. Right now, the live site is simply a Flask-powered landing page. The code in this repo--which features fully functional authentication--presently relies on PostgreSQL. We're hurridly refactoring things to accommodate Mongo.
 
-If you want a smart barebones project skeleton for your first or your next Django project, especially with **Heroku** in mind, then checkout [django-skel] (https://github.com/rdegges/django-skel) and/or [django-twoscoops-project] (https://github.com/seanbradley/django-twoscoops-project).
 
-If, however, you are new to Django, and/or new to deploying Python frameworks on **AWS**, then you may need a little more meat on dem bones to get started.  If so, [Simpletown] (https://github.com/seanbradley/Simpletown) is for you. Simpletown not only clearly hints at best practices, but provides everything you need to launch a complete--albeit minimal and easy to wrangle--Django project on one of Amazon's EC2 instances.  Simpletown comes not only with a few nicities for deploying on AWS, but also with two example views--easy-to-understand functional views--one of which fetches resources from an external API.
+###JUST LOOKING FOR A REPO TO HELP YOU GET STARTED WITH DJANGO?
+If you're just looking for a smart barebones project skeleton for your first your next Django project, especially if you plan on using **Heroku**, then checkout [django-skel] (https://github.com/rdegges/django-skel), or, alternatively, explore the exemplary [django-twoscoops-project] (https://github.com/twoscoops/django-twoscoops-project). If you're new to Django and plan on deploying to **AWS**, then you might prefer [Simpletown] (https://github.com/seanbradley/Simpletown). Simpletown not only clearly hints at best practices, but provides everything you need to launch a complete--albeit minimal and easy to wrangle--Django project on an Amazon EC2 instance.  Simpletown also comes with two example views--easy-to-understand functional views--one of which even fetches resources from an external API via Kenneth Reitz's awesome Requests library to get you started.
 
 
 ###SETTINGS
@@ -48,16 +48,18 @@ styles<br />
 ........js<br />
 
 
-###TODO
-* Presently refactoring for Mongo.
-
-
 ------------------------------------------------------------------------
 
 ###LICENSE AND CONTACT INFO
 
-Copyright (c) 2013 by Sean Bradley.  All rights reserved.
+Copyright © 2013/2014 by Sean Bradley.
 
-If you're a developer interested in checking out the site, or interested in using a fork of Stradivarius for commercial purposes, please contact the maintainer at:
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+If you're a developer interested in checking out the site, or interested in using a fork of Stradivarius for commercial purposes, please kindly give me a heads-up at:
 
 sean@blogblimp.com
