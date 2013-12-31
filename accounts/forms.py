@@ -46,17 +46,8 @@ class AuthenticationForm(forms.Form):
     """
     Login form.
     """
-    email = forms.EmailField(widget=forms.TextInput)
-    password = forms.CharField(widget=forms.PasswordInput)
+    email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'Email'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
 
     class Meta:
         fields = ['email', 'password']
-
-
-'''
-class PrettyAuthForm(AuthenticationForm):
-    def __init__(self, *args, **kwargs):
-        super(PrettyAuthForm, self).__init__(*args, **kwargs)
-        self.fields['username'].widget.attrs['placeholder'] = u'username'
-        self.fields['password'].widget.attrs['placeholder'] = u'password'
-'''
