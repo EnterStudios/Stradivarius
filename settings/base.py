@@ -93,13 +93,16 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 # at the end of your virtualenv's /bin/activate script (usually found in ~/.virtualenvs)
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', #switch to mongo and refactor
-        'NAME': os.environ['CONCERT_DB'],       # Or path to database file if using sqlite3
-        'USER': os.environ['CONCERT_USER'],     # Not used with sqlite3
-        'PASSWORD': os.environ['CONCERT_PASS'], # Not used with sqlite3
-        'EMAIL': 'sean@concerttalent.com',      # Likewise, something more secure
-        'HOST': 'localhost',    # Set to empty string for localhost
-        'PORT': '',             # Set to empty string for default
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ['CONCERT_DB'],
+        'USER': os.environ['CONCERT_USER'],
+        'PASSWORD': os.environ['CONCERT_PASS'],
+        'EMAIL': 'sean@concerttalent.com',
+         #'NAME': 'ubuntu',
+         #'USER': 'ubuntu',
+         #'PASSWORD': 'ubuntu',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 ########## END DATABASE CONFIGURATION
@@ -112,6 +115,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'accounts.backends.EmailAuthBackend',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -151,23 +155,17 @@ INSTALLED_APPS = (
 
 ########## ADMNISTRATORS
 ADMINS = (
-    ('Sean Bradley', 'sean@concerttalent.com'),
+    ('Sean', 'sean@concerttalent.com'),
 )
 
 MANAGERS = ADMINS
 ########## END ADMNISTRATORS
 
 
-########## USER REGISTRATION / ACTIVATION CONFIGURATION
-AUTHENTICATION_BACKENDS = (
-    'accounts.backends.EmailAuthBackend',
-    #'django.contrib.auth.backends.ModelBackend'
-)
-#AUTH_PROFILE_MODULE = 'accounts.UserDetailView'
-AUTH_USER_MODEL = 'accounts.User'
+########## USER AUTHENTICATION / REGISTRATION / ACTIVATION CONFIGURATION
+AUTH_USER_MODEL = "accounts.MyUser"
 ACCOUNT_ACTIVATION_DAYS = 7
-DEFAULT_FROM_EMAIL = 'sean@concerttalent.com'
-LOGIN_URL = '/login/'
+DEFAULT_FROM_EMAIL = 'webmaster@localhost'
 LOGIN_REDIRECT_URL = '/'
 ########## END USER REGISTRATION / ACTIVATION CONFIGURATION
 
@@ -220,8 +218,6 @@ SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
-# Also: as a hack, it's possible to set this to true for custom messages
-# See: http://blog.brendel.com/2010/09/how-to-customize-djangos-default.html
 USE_I18N = False
 
 # If you set this to False, Django will not format dates, numbers and

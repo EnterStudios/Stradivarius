@@ -5,6 +5,10 @@ accounts.views.py
 Renames contrib.auth login and logout so they don't conflict with the names
 of the views themselves.
 
+See...
+https://groups.google.com/forum/#!topic/django-users/gH_OqxsBdo0
+...
+
 TODO: Problem with login view...
 
 I'm rendering_to_respond accounts/login.html but the entire form is duplicated
@@ -18,15 +22,14 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 from django.contrib import messages
-from django.contrib.auth import login as django_login, authenticate, logout as django_logout
+from django.contrib.auth import login as django_login, logout as django_logout, authenticate
 from django.views.generic.detail import DetailView
 from forms import AuthenticationForm, RegistrationForm
 from braces.views import LoginRequiredMixin
-from models import User
-
+from models import MyUser
 
 class UserDetailView(LoginRequiredMixin, DetailView):
-    model = User
+    model = MyUser
     template_name = "accounts/user_detail.html"
     #use email instead of pk or username
     slug_field = "email"

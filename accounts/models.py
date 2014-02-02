@@ -28,7 +28,7 @@ class CustomUserManager(BaseUserManager):
         return user
 
 
-class User(AbstractBaseUser):
+class MyUser(AbstractBaseUser):
     email = models.EmailField(max_length=254, unique=True)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
@@ -36,6 +36,7 @@ class User(AbstractBaseUser):
     objects = CustomUserManager()
 
     USERNAME_FIELD = 'email'
+    #REQUIRED_FIELDS = ''
 
     def get_full_name(self):
         # The user is identified by their email address

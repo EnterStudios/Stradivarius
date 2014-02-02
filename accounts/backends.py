@@ -6,7 +6,7 @@ There's an alternate/defunct backend here alloweing for email OR username login.
 
 from django.conf import settings
 from django.contrib.auth.models import check_password
-from models import User
+from models import MyUser
 
 
 class EmailAuthBackend(object):
@@ -19,19 +19,19 @@ class EmailAuthBackend(object):
         Authentication method
         """
         try:
-            user = User.objects.get(email=email)
+            user = MyUser.objects.get(email=email)
             if user.check_password(password):
                 return user
-        except User.DoesNotExist:
+        except MyUser.DoesNotExist:
             return None
 
     def get_user(self, user_id):
         try:
-            user = User.objects.get(pk=user_id)
+            user = MyUser.objects.get(pk=user_id)
             if user.is_active:
                 return user
             return None
-        except User.DoesNotExist:
+        except MyUser.DoesNotExist:
             return None
 
 
