@@ -14,3 +14,4 @@ django-yearlessdate==0.3-beta
 django-braces
 django-crispy-forms
 yolk==0.4.3
+docutils

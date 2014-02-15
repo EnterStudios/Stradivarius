@@ -49,14 +49,14 @@ def login(request):
                 if user.is_active:
                     django_login(request, user)
                     return redirect('/')
-        '''
-        # if form is invalid flash an error message on login page
         else:
-            message = request.session['message'] = 'Hello view2!'
-            return render_to_response('accounts/login.html', {
-            'form': form, 'message': message,
-            }, context_instance=RequestContext(request))
-        '''
+            return redirect('/')
+            #: if form is invalid, would rather flash an error message on login page...
+            #message = request.session['message'] = 'Hello view2!'
+            #return render_to_response('accounts/login.html', {
+            #'form': form,
+            #'message': message,
+            #}, context_instance=RequestContext(request))
     else:
         form = AuthenticationForm()
 

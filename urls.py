@@ -22,6 +22,10 @@ urlpatterns = patterns('',
     ###### index #####
     url(r'^$', 'main.views.index'),
 
+    ##### docs #####
+    #this url must be placed before /admin
+    url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+
     ##### admin #####
     url(r'^admin/', include(admin.site.urls)),
 

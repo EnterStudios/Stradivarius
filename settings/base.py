@@ -115,6 +115,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.doc.XViewMiddleware',
     'accounts.backends.EmailAuthBackend',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -138,7 +139,7 @@ INSTALLED_APPS = (
     'mongonaut',
     'accounts',
     #'registration',
-    #'django.contrib.admindocs',
+    'django.contrib.admindocs',
     #'django-extensions', #to use, just uncomment this line
     #'djcelery'  #to use, uncomment lines in CELERY CONFIGURATION below
     #'kombu.transport.django' #to use, uncomment lines in CELERY CONFIGURATION below
