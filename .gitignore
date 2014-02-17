@@ -34,3 +34,5 @@ build
 # Secret key file:
 secret.py
 
+# Dummy emails:
+dummy_emails/

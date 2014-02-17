@@ -24,7 +24,7 @@ from django.template import RequestContext
 from django.contrib import messages
 from django.contrib.auth import login as django_login, logout as django_logout, authenticate
 from django.views.generic.detail import DetailView
-from forms import AuthenticationForm, RegistrationForm
+from forms import AuthenticationForm#, RegistrationForm
 from braces.views import LoginRequiredMixin
 from models import MyUser
 
@@ -72,7 +72,7 @@ def logout(request):
     django_logout(request)
     return redirect('/')
 
-
+'''
 def register(request):
     """
     User registration view.
@@ -84,6 +84,9 @@ def register(request):
             return redirect('/')
     else:
         form = RegistrationForm()
-    return render_to_response('accounts/registration_form.html', {
+    return render_to_response('registration/registration_form.html', {
         'form': form,
     }, context_instance=RequestContext(request))
+
+'''
+

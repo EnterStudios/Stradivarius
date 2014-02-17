@@ -1,7 +1,11 @@
 '''
 main.urls.py
 
-TODO: Wire in django-registration
+TODO:
+- wire in django-registration
+- rename accounts.views, accounts.urls and templates.accounts as
+  auth.views, auth.urls, and templates.auth
+
 '''
 
 from django.conf.urls import patterns, include, url
@@ -16,13 +20,16 @@ import accounts
 
 urlpatterns = patterns('',
 
-    ##### login and registration #####
-    url(r'^accounts/', include('accounts.urls', namespace='accounts')),
+    ##### login, logout, profile #####
+    url(r'^auth/', include('accounts.urls', namespace='auth')),
+
+    ##### registration #####
+    url(r'^accounts/', include('registration.backends.default.urls')),
 
     ###### index #####
     url(r'^$', 'main.views.index'),
 
-    ##### docs #####
+    ##### admin docs #####
     #this url must be placed before /admin
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 

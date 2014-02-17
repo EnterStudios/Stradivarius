@@ -91,11 +91,16 @@
                         <ul class="nav">
                             <li><a>Welcome, {% filter force_escape %}{% firstof user.get_short_name user.get_username %}{% endfilter %}!</a></li>
                             <li><a href="/">Home</a></li>
-                            <li><a href="{% url 'accounts:user_detail' user.email %}">Profile</a></li>
-                            <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
+                            <li><a href="{% url 'auth:user_detail' user.email %}">Profile</a></li>
+                            <li><a href="{% url 'auth:logout' %}">Logout</a></li>
                         </ul>
                     {% else %}
+                        {% block login %}
                         {% include 'accounts/login.html' %}
+                        <div class="span3" style="padding:15px 10px 10px">
+                            <a type="button" class="btn navbar-btn" href="{% url 'registration_register' %}">Register</a>
+                        </div>
+                        {% endblock login %}
                     {% endif %}
                     </div><!--/.nav-collapse -->
                 </div><!--/.container fluid -->

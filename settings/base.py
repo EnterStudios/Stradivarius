@@ -138,7 +138,8 @@ INSTALLED_APPS = (
     'south',
     'mongonaut',
     'accounts',
-    #'registration',
+    'registration', #TODO: upload my custom implementation of this to GitHub;
+                    #point requirements.txt to correct URL
     'django.contrib.admindocs',
     #'django-extensions', #to use, just uncomment this line
     #'djcelery'  #to use, uncomment lines in CELERY CONFIGURATION below
@@ -172,6 +173,34 @@ LOGIN_REDIRECT_URL = '/'
 
 
 ########## EMAIL CONFIGURATION
+
+'''
+#settings for Gmail...
+#make certain to set the SITE_NAME env variable
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'you@gmail.com'
+EMAIL_HOST_PASSWORD = 'PASSWORD'
+EMAIL_USE_TLS = True
+'''
+
+'''
+#to actually send the e-mail...
+#Run interactive mode,
+
+#> python manage.py shell
+
+#Import the EmailMessage module...
+
+#> from django.core.mail import EmailMessage
+
+#Send the email,
+
+#> email = EmailMessage('Subject', 'Body', to=['you@example.com'])
+#> email.send()
+'''
+
+'''
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#email-backend
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
@@ -189,6 +218,8 @@ EMAIL_USE_TLS = True
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#server-email
 SERVER_EMAIL = EMAIL_HOST_USER
+'''
+
 ########## END EMAIL CONFIGURATION
 
 

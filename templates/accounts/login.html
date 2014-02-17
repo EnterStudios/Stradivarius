@@ -1,6 +1,6 @@
 <ul class="nav">
     <li class="navbar-form pull-right">
-        <form method="post" action="{% url 'accounts:login' %}">
+        <form method="post" action="{% url 'auth:login' %}">
             {% csrf_token %}
             {{ form.email }}
             {{ form.password }}
@@ -10,9 +10,6 @@
     </li>
 </ul>
 
-<div class="span3" style="padding:15px 10px 10px">
-    <a type="button" class="btn navbar-btn" href="{% url 'accounts:register' %}">Register</a>
-</div>
 
 {% if form.errors %}
     {% for field in form %}

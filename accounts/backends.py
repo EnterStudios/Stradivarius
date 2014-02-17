@@ -1,7 +1,7 @@
 '''
 accounts.backends.py
 
-There's an alternate/defunct backend here alloweing for email OR username login.
+There's an alternate/defunct backend here allowing for email OR username login.
 '''
 
 from django.conf import settings

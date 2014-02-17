@@ -1,0 +1,15 @@
+{% extends "registration/registration_base.html" %}
+{% block title %}Register for an account{% endblock %}
+{% block article_one %}
+<div style="padding-top:60px;">
+    <table>
+        <form method='post' action=''>
+            {% csrf_token %}
+            {{ form }}
+            <tr>
+                <td></td>
+                <td><input class="btn" type="submit" value="Let me in!" /></td>
+        </form>
+    </table>
+</div>
+{% endblock %}
