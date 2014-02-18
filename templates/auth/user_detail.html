@@ -1,7 +1,14 @@
 {% extends "base.html" %}
 
 {% block article_one %}
-        <div style="padding-top:100px">
-            <h2>Hello, {{ user.email }}!</h2>
+<article>
+    <div class="span9 row" style="padding-top:60px;">
+        <div class="feature">
+            <h3><i class="icon icon-home icon-large"></i> Yay! You're back, {{ user.username }}!</h3>
+            <br />
+            <br />
+            Click <a href="/">here</a> to return to the homepage.
         </div>
+    </div>
+</article><!--/article_one-->
 {% endblock %}
