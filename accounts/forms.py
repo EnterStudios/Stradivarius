@@ -1,7 +1,6 @@
 '''
 accounts.forms.py
 
-TODO: AuthenticationForm needs placekeepers.
 '''
 
 from django import forms

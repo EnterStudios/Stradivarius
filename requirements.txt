@@ -8,7 +8,7 @@ argparse==1.2.1
 south==0.8.1
 csvkit==0.5.0
 django-debug-toolbar==0.9.4
-git+https://github.com/mwieler/django-registration-1.5.git
+git+https://github.com/seanbradley/django-registration
 django-registration-defaults==0.3
 django-yearlessdate==0.3-beta
 django-braces
