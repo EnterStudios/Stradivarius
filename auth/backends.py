@@ -1,5 +1,5 @@
 '''
-accounts.backends.py
+auth.backends.py
 
 There's an alternate/defunct backend here allowing for email OR username login.
 '''

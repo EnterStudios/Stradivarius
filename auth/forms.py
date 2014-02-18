@@ -6,7 +6,8 @@ accounts.forms.py
 from django import forms
 from models import User
 
-
+'''
+#RegistrationForm is via default form in django-registration
 class RegistrationForm(forms.ModelForm):
     """
     Form for registering a new account.
@@ -39,7 +40,7 @@ class RegistrationForm(forms.ModelForm):
         if commit:
             user.save()
         return user
-
+'''
 
 class AuthenticationForm(forms.Form):
     """

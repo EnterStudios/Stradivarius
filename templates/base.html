@@ -96,7 +96,7 @@
                         </ul>
                     {% else %}
                         {% block login %}
-                        {% include 'accounts/login.html' %}
+                        {% include 'auth/login.html' %}
                         <div class="span3" style="padding:15px 10px 10px">
                             <a type="button" class="btn navbar-btn" href="{% url 'registration_register' %}">Register</a>
                         </div>

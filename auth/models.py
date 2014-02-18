@@ -1,6 +1,7 @@
 '''
 accounts.models.py
 '''
+
 from django.core.mail import send_mail
 from django.contrib.auth.models import (
     User, AbstractBaseUser, BaseUserManager, UserManager)
@@ -15,9 +16,9 @@ class CustomUserManager(BaseUserManager):
         user = self.model()
         if not email:
             raise ValueError('Users must have an email address.')
-        #user = self.model(username=username, email=email, is_staff=False, is_active=True, is_superuser=False)
         email = UserManager.normalize_email(email)
         user = self.model(username=username, email=email)
+        #user = self.model(username=username, email=email, is_staff=False, is_active=True, is_superuser=False)
         user.set_password(password)
         user.save(using=self._db)
         return user
@@ -37,9 +38,12 @@ class MyUser(AbstractBaseUser):
 
     objects = CustomUserManager()
 
-    USERNAME_FIELD = 'username'
-    #USERNAME_FIELD = 'email'
-    #REQUIRED_FIELDS = ''
+    #USERNAME_FIELD = 'username'
+    #REQUIRED_FIELDS = ['email']
+
+    #This must be set to 'email' to require email for login...
+    USERNAME_FIELD = 'email'
+
 
     def get_full_name(self):
         # The user is identified by their email address
@@ -47,7 +51,7 @@ class MyUser(AbstractBaseUser):
 
     def get_short_name(self):
         # The user is identified by their email address
-        return self.email
+        return self.username
 
     def __unicode__(self):
         #return self.email

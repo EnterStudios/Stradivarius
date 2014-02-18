@@ -98,9 +98,6 @@ DATABASES = {
         'USER': os.environ['CONCERT_USER'],
         'PASSWORD': os.environ['CONCERT_PASS'],
         'EMAIL': 'sean@concerttalent.com',
-         #'NAME': 'ubuntu',
-         #'USER': 'ubuntu',
-         #'PASSWORD': 'ubuntu',
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -116,7 +113,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.doc.XViewMiddleware',
-    'accounts.backends.EmailAuthBackend',
+    'auth.backends.EmailAuthBackend',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -137,9 +134,8 @@ INSTALLED_APPS = (
     'crispy_forms',
     'south',
     'mongonaut',
-    'accounts',
-    'registration', #TODO: upload my custom implementation of this to GitHub;
-                    #point requirements.txt to correct URL
+    'auth',
+    'registration',
     'django.contrib.admindocs',
     #'django-extensions', #to use, just uncomment this line
     #'djcelery'  #to use, uncomment lines in CELERY CONFIGURATION below
@@ -165,9 +161,10 @@ MANAGERS = ADMINS
 
 
 ########## USER AUTHENTICATION / REGISTRATION / ACTIVATION CONFIGURATION
-AUTH_USER_MODEL = "accounts.MyUser"
+AUTH_USER_MODEL = 'auth.MyUser'
 ACCOUNT_ACTIVATION_DAYS = 7
 DEFAULT_FROM_EMAIL = 'webmaster@localhost'
+LOGIN_URL = '/auth/login'
 LOGIN_REDIRECT_URL = '/'
 ########## END USER REGISTRATION / ACTIVATION CONFIGURATION
 
