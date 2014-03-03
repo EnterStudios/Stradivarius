@@ -8,9 +8,11 @@ def index(request):
     form = AuthenticationForm()
     return render(request, 'index.html', { 'form': form })
 
+'''
 def logout_page(request):
     """
     Log users out and re-direct them to the main page.
     """
     logout(request)
     return HttpResponseRedirect('/')
+'''

@@ -29,4 +29,7 @@ urlpatterns = patterns('',
     ##### admin #####
     url(r'^admin/', include(admin.site.urls)),
 
+    ##### mongonaut #####
+    url(r'^mongonaut/', include('mongonaut.urls')),
+
 )
