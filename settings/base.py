@@ -1,6 +1,6 @@
 # DJANGO BASE SETTINGS
 
-import os, sys
+import os, sys, urllib
 from os import environ
 from os.path import basename
 from unipath import Path
@@ -94,14 +94,39 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ['CONCERT_DB'],
+        'NAME': os.environ['CONCERT_SQL'], #PostgreSQL name
         'USER': os.environ['CONCERT_USER'],
         'PASSWORD': os.environ['CONCERT_PASS'],
         'EMAIL': 'sean@concerttalent.com',
         'HOST': 'localhost',
         'PORT': '',
     }
+    #if using Django MongoDB Engine...
+    #make sure you put a comma after previous curly brace, then...
+    #'concert_mongo': {
+    #    'ENGINE': 'django_mongodb_engine',
+    #    'NAME': os.environ['CONCERT_MONGO_DB_NAME'],
+    #    'USER': os.environ['CONCERT_USER'],
+    #    'PASSWORD': os.environ['CONCERT_PASS'],
+    #    'HOST': os.environ['CONCERT_MONGO_HOST'],
+    #    'PORT': os.environ['CONCERT_MONGO_PORT'],
+    #}
 }
+
+#if using PyMongo or MongoEngine...
+#you could just place the entire connection URI in .bashrc
+#or assemble the URI in some manner like so...
+from pymongo import MongoClient
+mongouser = os.environ['CONCERT_USER']
+mongopass = os.environ['CONCERT_PASS']
+mongohost = os.environ['CONCERT_MONGO_HOST']
+mongoport = os.environ['CONCERT_MONGO_PORT']
+mongodb_name = os.environ['CONCERT_MONGO'] #MongoDB name
+user_info = mongouser + ":" + mongopass
+mongolab_info = "@" + mongohost + ":" + mongoport
+connection_string = "mongodb://" + user_info + mongolab_info + "/" + mongodb_name
+client = MongoClient(connection_string)
+
 ########## END DATABASE CONFIGURATION
 
 
@@ -137,6 +162,7 @@ INSTALLED_APPS = (
     'auth',
     'registration',
     'django.contrib.admindocs',
+    'artists'
     #'django-extensions', #to use, just uncomment this line
     #'djcelery'  #to use, uncomment lines in CELERY CONFIGURATION below
     #'kombu.transport.django' #to use, uncomment lines in CELERY CONFIGURATION below
