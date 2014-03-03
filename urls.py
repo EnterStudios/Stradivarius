@@ -1,15 +1,14 @@
 '''
 main.urls.py
-
 '''
-
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
 admin.autodiscover()
 
-import main
 import auth
+import main
+import artists
 
 urlpatterns = patterns('',
 
@@ -21,6 +20,9 @@ urlpatterns = patterns('',
 
     ##### registration #####
     url(r'^accounts/', include('registration.backends.default.urls')),
+
+    ##### artists #####
+    url(r'^artists/', include('artists.urls', namespace='artists')),
 
     ##### admin docs #####
     #this url must be placed before /admin

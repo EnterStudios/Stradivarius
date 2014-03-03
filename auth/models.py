@@ -1,7 +1,6 @@
 '''
 accounts.models.py
 '''
-
 from django.core.mail import send_mail
 from django.contrib.auth.models import (
     User, AbstractBaseUser, BaseUserManager, UserManager)

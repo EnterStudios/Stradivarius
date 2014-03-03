@@ -1,16 +1,11 @@
 '''
 auth.views.py
 '''
-
-from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 from django.contrib import messages
 from django.contrib.auth import login as django_login, logout as django_logout, authenticate
-from django.views.generic.detail import DetailView
 from forms import AuthenticationForm
-from braces.views import LoginRequiredMixin
-from models import MyUser
 
 
 def login(request):
@@ -48,30 +43,4 @@ def logout(request):
     django_logout(request)
     return redirect('/')
 
-'''
-def register(request):
-    """
-    User registration view.
-    """
-    if request.method == 'POST':
-        form = RegistrationForm(data=request.POST)
-        if form.is_valid():
-            user = form.save()
-            return redirect('/')
-    else:
-        form = RegistrationForm()
-    return render_to_response('registration/registration_form.html', {
-        'form': form,
-    }, context_instance=RequestContext(request))
-
-'''
-
-#TODO: move this view and template to main/ or accounts/
-class UserDetailView(LoginRequiredMixin, DetailView):
-    model = MyUser
-    template_name = "auth/user_detail.html"
-    #use email instead of pk or username
-    slug_field = "email"
-    #override the context user object to profile
-    context_object_name = "user_detail"
 
