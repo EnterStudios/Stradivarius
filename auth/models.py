@@ -37,11 +37,11 @@ class MyUser(AbstractBaseUser):
 
     objects = CustomUserManager()
 
-    #USERNAME_FIELD = 'username'
-    #REQUIRED_FIELDS = ['email']
+    USERNAME_FIELD = 'username'
+    REQUIRED_FIELDS = ['email']
 
     #This must be set to 'email' to require email for login...
-    USERNAME_FIELD = 'email'
+    #USERNAME_FIELD = 'email'
 
 
     def get_full_name(self):
