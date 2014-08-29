@@ -44,3 +44,22 @@ def logout(request):
     return redirect('/')
 
 
+'''
+def register(request):
+    """
+    User registration view.
+    """
+    if request.method == 'POST':
+        form = RegistrationForm(data=request.POST)
+        if form.is_valid():
+            user = form.save()
+            return redirect('/')
+    else:
+        form = RegistrationForm()
+    return render_to_response('registration/registration_form.html', {
+        'form': form,
+    }, context_instance=RequestContext(request))
+
+'''
+
+

@@ -7,6 +7,6 @@ from views import ArtistDetailView
 
 urlpatterns = patterns('',
 
-    url(r'^(?P<slug>[\w.@+-]+)/$', ArtistDetailView.as_view(), name="artist_detail"),
+    url(r'^(?P<slug>[\w.@+-]+)/$', ArtistDetailView.as_view(), name="user_detail"),
 
 )
