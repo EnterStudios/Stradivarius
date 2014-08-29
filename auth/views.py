@@ -66,12 +66,5 @@ def register(request):
 
 '''
 
-#TODO: move this view and template to main/ or accounts/
-class UserDetailView(LoginRequiredMixin, DetailView):
-    model = MyUser
-    template_name = "auth/user_detail.html"
-    #use email instead of pk or username
-    slug_field = "email"
-    #override the context user object to profile
-    context_object_name = "user_detail"
+
 

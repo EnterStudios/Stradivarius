@@ -1,5 +1,5 @@
 '''
-accounts.models.py
+auth.models.py
 '''
 
 from django.core.mail import send_mail

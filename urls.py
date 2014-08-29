@@ -8,8 +8,7 @@ from django.contrib import admin
 
 admin.autodiscover()
 
-import main
-import auth
+import auth, main, artists
 
 urlpatterns = patterns('',
 
@@ -21,6 +20,9 @@ urlpatterns = patterns('',
 
     ##### registration #####
     url(r'^accounts/', include('registration.backends.default.urls')),
+    
+    ##### profile #####
+    url(r'^artists/', include('artists.urls', namespace='artists')),   
 
     ##### admin docs #####
     #this url must be placed before /admin
